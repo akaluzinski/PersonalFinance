@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS personalfinancedb;
+DROP USER IF EXISTS `pfadmin`@`%`;
+DROP USER IF EXISTS `pfuser`@`%`;
+CREATE DATABASE IF NOT EXISTS personalfinancedb CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER IF NOT EXISTS `pfadmin`@`%` IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, REFERENCES, INDEX, ALTER, EXECUTE, CREATE VIEW, SHOW VIEW,
+    CREATE ROUTINE, ALTER ROUTINE, EVENT, TRIGGER ON `personalfinancedb`.* TO `pfadmin`@`%`;
+CREATE USER IF NOT EXISTS `pfuser`@`%` IDENTIFIED WITH mysql_native_password BY 'password';
+GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW ON `personalfinancedb`.* TO `pfuser`@`%`;
+FLUSH PRIVILEGES;
