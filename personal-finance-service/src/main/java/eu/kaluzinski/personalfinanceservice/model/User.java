@@ -1,5 +1,6 @@
 package eu.kaluzinski.personalfinanceservice.model;
 
+import eu.kaluzinski.personalfinanceservice.model.audit.DateAudit;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ import java.util.Set;
                 "email"
         })
 })
-public class User {
+public class User extends DateAudit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
