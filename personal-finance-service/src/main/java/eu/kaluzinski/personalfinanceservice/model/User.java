@@ -1,5 +1,6 @@
 package eu.kaluzinski.personalfinanceservice.model;
 
+import eu.kaluzinski.personalfinanceservice.model.audit.DateAudit;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -34,7 +35,7 @@ import java.util.Set;
                 "email"
         })
 })
-public class User {
+public class User extends DateAudit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -49,12 +50,12 @@ public class User {
 
     @NaturalId
     @NotBlank
-    @Size(max = 40)
+    @Size(max = 50)
     @Email
     private String email;
 
     @NotBlank
-    @Size(max = 100)
+    @Size(max = 100, min = 4)
     private String password;
 
     @ManyToMany(fetch = FetchType.LAZY)

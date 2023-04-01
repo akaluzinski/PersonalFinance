@@ -14,7 +14,7 @@ import java.util.List;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@ComponentScan(basePackageClasses = { eu.kaluzinski.personalfinanceservice.bootstrap.DataInitializer.class })
+@ComponentScan(basePackages = { "eu.kaluzinski.personalfinanceservice" })
 public class RolesRepositoryTest {
 
     @Autowired
