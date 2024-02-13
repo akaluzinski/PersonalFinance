@@ -6,3 +6,5 @@ An application to manage personal expenses.
 Stack: 
 - Spring Boot 3.0.5
 - MySQL 8.0.32
+
+TBD:
